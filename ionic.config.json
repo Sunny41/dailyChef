@@ -1,0 +1,7 @@
+{
+  "name": "cookToday",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
