@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { Meal } from 'src/app/models/meal';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +9,15 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  public recipes;
+  public meals: Array<Meal>;
 
   constructor(private storage: Storage, private alertCtrl: AlertController) {
-
+    this.meals = new Array<Meal>();
   }
 
   ionViewWillEnter(){
-    this.storage.get('recipes').then(recipes=>{
-      this.recipes = recipes;
+    this.storage.get(Meal.ID_MEALS).then(meals => {
+      this.meals = meals as Array<Meal>;
     })
   }
 
@@ -34,11 +35,8 @@ export class HomePage {
           text: 'ok',
           handler: (data)=> {
             if(data.favorite){
-              if(!this.recipes){
-                this.recipes = [];
-              }
-              this.recipes.push(data.favorite);
-              this.storage.set('recipes',  this.recipes);
+              this.meals.push(new Meal(data.favorite));
+              this.storage.set(Meal.ID_MEALS,  this.meals);
             }
             console.log(data);
           }
@@ -48,21 +46,15 @@ export class HomePage {
     await alert.present();
   }
 
-  delete(index) {
-    const temp = []
-    for(let i = 0; i< this.recipes.length; i++){
-      if(i != index){
-        temp.push(this.recipes[i]);
-      }
-    }
-    this.recipes = temp;
-    this.storage.set('recipes', this.recipes);
+  delete(index:number) {
+    this.meals.splice(index, 1);
+    this.storage.set(Meal.ID_MEALS, this.meals);
   }
 
   async chooseRandomRecipe() {
-    const random = Math.floor(Math.random()*this.recipes.length);
+    const random = Math.floor(Math.random()*this.meals.length);
     const alert = await this.alertCtrl.create({
-      message: 'Wir machen heute ' + this.recipes[random],
+      message: 'Wir machen heute ' + this.meals[random].name,
       buttons: [{
         text: 'Ok',
         role: 'cancel'

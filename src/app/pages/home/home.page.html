@@ -12,10 +12,10 @@
 <ion-content>
   <ion-button (click)="chooseRandomRecipe()">Was kochen wir heute?</ion-button>
   <ion-list>
-    <ion-item-sliding *ngFor="let item of recipes, let i = index">
+    <ion-item-sliding *ngFor="let item of meals, let i = index">
       <ion-item lines="full">
       <ion-label>
-        {{item}}
+        {{item.name}}
       </ion-label>
       </ion-item>
       <ion-item-options side="end">
