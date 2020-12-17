@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{'GROCERY_LIST.GROCERY_LIST' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-button (click)="addItem()" class="addButton">{{'GROCERY_LIST.ADD_ITEM' | translate }}</ion-button>
+
+<ion-list *ngIf="items">
+  <ion-item *ngFor="let item of items; let i = index">
+    <ion-check-box></ion-check-box>
+    <ion-label>{{item.name}}</ion-label>
+  </ion-item>
+</ion-list>
+</ion-content>

@@ -18,7 +18,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'grocery-list',
+    loadChildren: () => import('./pages/grocery-list/grocery-list.module').then( m => m.GroceryListPageModule)
   },
+
 
 ];
 

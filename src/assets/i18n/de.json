@@ -24,5 +24,16 @@
         "LABEL_TITLE": "Gerichte"
     },
 
+    "HOME": {
+        "MEALS": "Meine Lieblingsgerichte",
+        "GROCERY_LIST": "Einkaufsliste",
+        "BUTTON_RANDOM_MEAL": "Was kochen wir heute?"
+    },
+
+    "GROCERY_LIST": {
+        "GROCERY_LIST": "Einkaufsliste",
+        "ADD_ITEM": "Hinzufügen"
+    },
+
     "LABEL_MY_FAVORITE_MEALS": "Meine Lieblingsgerichte"
 }
