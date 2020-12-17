@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+    {{ 'MEALS.LABEL_TITLE' | translate }}
+    </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button menu="side-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let meal of meals">
+    <ion-item lines="full" (click)="onClickMeal(meal)" detail="false">
+      <ion-label>
+        {{ meal.name }}
+      </ion-label>
+    </ion-item> 
+  </ion-list>
+</ion-content>

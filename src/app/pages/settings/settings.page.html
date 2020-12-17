@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'SETTINGS.LABEL_TITLE' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>  
+    <ion-list-header>
+      <ion-label>
+        {{ 'SETTINGS.LABEL_GENERAL' | translate }}
+      </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>{{ 'SETTINGS.LABEL_LANGUAGE' | translate }}</ion-label>
+      <ion-select placeholder="{{ 'SETTINGS.LABEL_LANGUAGE' | translate }}" [value]="systemSetting?.language" okText="{{ 'GENERAL.LABEL_SAVE' | translate }}" cancelText="{{ 'GENERAL.LABEL_CANCEL' | translate }}" (ionChange)="onChangeLanguage($event)">
+        <ion-select-option value="de">{{ 'SETTINGS.LABEL_LANGUAGE_GERMAN' | translate }}</ion-select-option>
+        <ion-select-option value="en">{{ 'SETTINGS.LABEL_LANGUAGE_ENGLISH' | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+  </ion-list>
+</ion-content>

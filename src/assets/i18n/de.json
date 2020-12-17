@@ -1,3 +1,28 @@
 {
+    "GENERAL": {
+        "LABEL_APP_TITLE": "Daily Chef",
+        "LABEL_SAVE": "Speichern",
+        "LABEL_CANCEL": "Abbrechen"
+    },
+
+    "SIDE_MENU": {
+        "LABEL_TITLE": "Menü",
+        "LABEL_SETTINGS": "Einstellungen",
+        "LABEL_HELP": "Hilfe",
+        "LABEL_SEND_FEEDBACK": "Feedback senden"
+    },
+
+    "SETTINGS": {
+        "LABEL_TITLE": "Einstellungen",
+        "LABEL_GENERAL": "Allgemein",
+        "LABEL_LANGUAGE": "Sprache",
+        "LABEL_LANGUAGE_GERMAN": "Deutsch (System)",
+        "LABEL_LANGUAGE_ENGLISH": "Englisch (System)"
+    },
+
+    "MEALS": {
+        "LABEL_TITLE": "Gerichte"
+    },
+
     "LABEL_MY_FAVORITE_MEALS": "Meine Lieblingsgerichte"
 }
