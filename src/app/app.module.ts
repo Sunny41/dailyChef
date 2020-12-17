@@ -17,7 +17,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot(), 
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule, 
+    IonicStorageModule.forRoot(), 
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -26,7 +30,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
         deps: [HttpClient]
       },
       defaultLanguage:'de'
-    }) ],
+    })
+  ],
   providers: [
     StatusBar,
     SplashScreen,

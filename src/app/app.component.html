@@ -1,3 +1,31 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu menuId="side-menu" content-id="side" side="end">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{ 'SIDE_MENU.LABEL_TITLE' | translate }}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/settings">
+            <ion-label>{{ 'SIDE_MENU.LABEL_SETTINGS' | translate }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-label>{{ 'SIDE_MENU.LABEL_HELP' | translate }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        
+        <ion-menu-toggle>
+          <ion-item>
+            <ion-label>{{ 'SIDE_MENU.LABEL_SEND_FEEDBACK' | translate }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="side"></ion-router-outlet>
 </ion-app>
