@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 import { Meal } from 'src/app/models/meal';
 
 @Component({
@@ -11,8 +12,8 @@ import { Meal } from 'src/app/models/meal';
 export class HomePage {
   public meals: Array<Meal>;
 
-  constructor(private storage: Storage, private alertCtrl: AlertController) {
-    this.meals = new Array<Meal>();
+  constructor(private storage: Storage, private alertCtrl: AlertController, translate: TranslateService) {
+    this.meals = new Array<Meal>(); 
   }
 
   ionViewWillEnter(){
