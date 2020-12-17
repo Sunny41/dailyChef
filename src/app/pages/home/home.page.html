@@ -1,31 +1,26 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      {{ 'GENERAL.LABEL_APP_TITLE' | translate }}
-    </ion-title>
+  <ion-toolbar mode="ios">
+    <ion-title> {{ 'GENERAL.LABEL_APP_TITLE' | translate }} </ion-title>
 
     <ion-buttons slot="end">
-      <ion-menu-button menu="side-menu"></ion-menu-button>
+      <ion-menu-button menu="side-menu" class="white"></ion-menu-button>
     </ion-buttons>
-  </ion-toolbar>  
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="chooseRandomRecipe()">Was kochen wir heute?</ion-button>
+  <ion-button (click)="chooseRandomRecipe()" class="random_button"
+    >{{'HOME.BUTTON_RANDOM_MEAL' | translate}}</ion-button
+  >
   <ion-list>
-    <ion-item lines="full" (click)="onClickMeals()" detail="false">
-      <ion-label>
-        Gerichte
-      </ion-label>
-      <ion-icon name="fast-food-outline"></ion-icon>
-      </ion-item>
+    <ion-item detail="false" routerLink="/meals">
+      <ion-icon name="fast-food-outline" class="listIcons"></ion-icon>
+      &nbsp; &nbsp; &nbsp;{{'HOME.MEALS' | translate}}
+    </ion-item>
 
-      <ion-item lines="full">
-        <ion-label>
-          Einkaufsliste          
-        </ion-label>   
-        <ion-icon name="receipt-outline"></ion-icon>     
-        </ion-item>
+    <ion-item lines="none" routerLink="/grocery-list">
+      <ion-icon name="receipt-outline" class="listIcons" ></ion-icon>
+      &nbsp; &nbsp; &nbsp;{{'HOME.GROCERY_LIST' | translate}}
+    </ion-item>
   </ion-list>
-
 </ion-content>
