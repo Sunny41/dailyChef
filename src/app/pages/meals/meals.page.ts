@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Meal } from 'src/app/models/meal';
-import { Storage } from '@ionic/storage';
+import { NavigationExtras, Router } from '@angular/router';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-meals',
@@ -11,15 +12,20 @@ import { Storage } from '@ionic/storage';
 export class MealsPage {
   meals: Array<Meal>;
   
-  constructor(private translate: TranslateService, private storage: Storage) { }
+  constructor(private translate: TranslateService, private storage: StorageService, private router: Router) { }
 
   ionViewWillEnter(){
-    this.storage.get(Meal.ID_MEALS).then(meals => {
+    this.storage.getMeals().then(meals => {
       this.meals = meals;
     });
   }
 
   onClickMeal(meal: Meal): void {
-    console.log(meal);
+    let navigationExtras: NavigationExtras = {
+      state: {
+        meal: meal
+      }
+    };
+    this.router.navigate(['/meals/meal'], navigationExtras);
   }
 }
