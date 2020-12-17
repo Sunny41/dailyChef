@@ -17,8 +17,23 @@
         "LABEL_GENERAL": "General",
         "LABEL_LANGUAGE": "Language",
         "LABEL_LANGUAGE_GERMAN": "Deutsch (System)",
-        "LABEL_LANGUAGE_ENGLISH": "Englisch (System)"
+        "LABEL_LANGUAGE_ENGLISH": "English (System)"
     },
 
-    "LABEL_MY_FAVORITE_MEALS": "Meine Lieblingsgerichte"
+    "MEALS": {
+        "LABEL_TITLE": "Meals"
+    },
+
+    "HOME": {
+        "MEALS": "My Favourite Meals",
+        "GROCERY_LIST": "Grocery List",
+        "BUTTON_RANDOM_MEAL": "What do we cook today?"
+    },
+
+    "GROCERY_LIST": {
+        "GROCERY_LIST": "Grocery List",
+        "ADD_ITEM": "Add Item"
+    },
+
+    "LABEL_MY_FAVORITE_MEALS": "My favourite Meals"
 }

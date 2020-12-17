@@ -4,13 +4,13 @@ ion-icon {
 }
 
 ion-button {
-  --background:  #224200;
+  --background: #224200;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5%;
 }
 
-ion-content{
+ion-content {
   align-items: center;
   text-align: center;
   align: center;
@@ -22,6 +22,31 @@ ion-item-option {
   font-size: 150%;
 }
 
-.delete{
+ion-button {
+  text-transform: none;
+}
+
+ion-list{
+  margin-top: 10%;
+}
+
+ion-item{
+  margin-top: 3%;
+}
+
+.delete {
   color: white;
+}
+
+.listIcons {
+  color: #224200;
+  font-size: 300%;
+}
+
+.white {
+  color: white;
+}
+
+.random_button{
+  margin-top: 10%;
 }
