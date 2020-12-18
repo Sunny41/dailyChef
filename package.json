@@ -29,6 +29,7 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "angular": "^1.8.2",
+    "guid-typescript": "^1.0.9",
     "node": "^12.16.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
