@@ -19,7 +19,7 @@ export class HomePage {
   }
 
   ionViewWillEnter(){
-    this.storage.clear();
+    //this.storage.clear();
     this.storage.get(SystemSetting.ID_SYSTEM_SETTING).then(setting => {
       if(setting == null) {
         var defaultSetting = SystemSetting.getDefaultSystemSettings();

@@ -2,7 +2,8 @@
     "GENERAL": {
         "LABEL_APP_TITLE": "Daily Chef",
         "LABEL_SAVE": "Speichern",
-        "LABEL_CANCEL": "Abbrechen"
+        "LABEL_CANCEL": "Abbrechen",
+        "LABEL_OK": "Ok"
     },
 
     "SIDE_MENU": {
@@ -21,7 +22,14 @@
     },
 
     "MEALS": {
-        "LABEL_TITLE": "Gerichte"
+        "LABEL_TITLE": "Gerichte",
+        "LABEL_QUESTION": "Was möchtest Du heute essen?",
+        "LABEL_NEW_FAVORITE_MEAL": "Neues Lieblingsgericht",
+        "LABEL_FAVORITE": "Favorit"
+    },
+
+    "MEAL": {
+        "LABEL_INGREDIENTS": "Zutaten"
     },
 
     "HOME": {
@@ -33,6 +41,24 @@
     "GROCERY_LIST": {
         "GROCERY_LIST": "Einkaufsliste",
         "ADD_ITEM": "Hinzufügen"
+    },
+
+    "INGREDIENT": {
+        "LABEL_INGREDIENT": "Zutat",
+        "LABEL_NAME": "Name",
+        "LABEL_AMOUNT": "Menge",
+        "LABEL_UNIT": "Einheit"
+    },
+
+    "UNIT": {
+        "g": "g",
+        "ml": "ml",
+        "X": "Stk",
+        "tbsp": "Esslöffel",
+        "tsp": "Teelöffel",
+        "oz": "Unze",
+        "cv": "Tasse (Volumen)",
+        "cs": "Tasse (Fest)"
     },
 
     "LABEL_MY_FAVORITE_MEALS": "Meine Lieblingsgerichte"

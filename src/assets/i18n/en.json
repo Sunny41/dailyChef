@@ -21,7 +21,12 @@
     },
 
     "MEALS": {
-        "LABEL_TITLE": "Meals"
+        "LABEL_TITLE": "Meals",
+        "LABEL_QUESTION": "What do you want to eat today?"
+    },
+
+    "MEAL": {
+        "LABEL_INGREDIENTS": "Ingredients"
     },
 
     "HOME": {
@@ -33,6 +38,24 @@
     "GROCERY_LIST": {
         "GROCERY_LIST": "Grocery List",
         "ADD_ITEM": "Add Item"
+    },
+
+    "INGREDIENT": {
+        "LABEL_INGREDIENT": "Ingredient",
+        "LABEL_NAME": "Name",
+        "LABEL_AMOUNT": "Amount",
+        "LABEL_UNIT": "Unit"
+    },
+
+    "UNIT": {
+        "g": "g",
+        "ml": "ml",
+        "X": "pce",
+        "tbsp": "Tablespoon",
+        "tsp": "Teaspoon",
+        "oz": "Oz",
+        "cv": "Cup (volume)",
+        "cs": "Cup (solid)"
     },
 
     "LABEL_MY_FAVORITE_MEALS": "My favourite Meals"

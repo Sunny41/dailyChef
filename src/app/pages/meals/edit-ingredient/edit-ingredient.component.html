@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+    {{ 'INGREDIENT.LABEL_INGREDIENT' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>{{ 'INGREDIENT.LABEL_NAME' | translate }}:</ion-label> <ion-input *ngIf="isReady" placeholder="{{ 'INGREDIENT.LABEL_NAME' | translate }}" [(ngModel)]="ingredient.name"></ion-input>
+  </ion-item>  
+  <ion-item>
+    <ion-label>{{ 'INGREDIENT.LABEL_AMOUNT' | translate }}:</ion-label><ion-input *ngIf="isReady" placeholder="{{ 'INGREDIENT.LABEL_AMOUNT' | translate }}" type="number" [(ngModel)]="ingredient.amount"></ion-input>
+  </ion-item>  
+
+  <ion-list>  
+    <ion-item>
+      <ion-label>{{ 'INGREDIENT.LABEL_UNIT' | translate }}:</ion-label>
+      <ion-select placeholder="{{ 'INGREDIENT.LABEL_UNIT' | translate }}" [value]="ingredient?.unit" okText="{{ 'GENERAL.LABEL_SAVE' | translate }}" cancelText="{{ 'GENERAL.LABEL_CANCEL' | translate }}" (ionChange)="onChangeUnit($event)">
+        <ion-select-option *ngFor="let unit of units" value="{{unit}}">{{ 'UNIT.' + unit | translate }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button (click)="dismiss()">{{ 'GENERAL.LABEL_SAVE' | translate }}</ion-button>
+</ion-footer>

@@ -10,5 +10,7 @@ export class Ingredient {
 
     public constructor(name: string) {
         this.name = name;
+        this.amount = 0;
+        this.unit = '';
     }
 }

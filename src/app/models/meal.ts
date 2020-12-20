@@ -7,7 +7,7 @@ export class Meal {
     public static ID_MEAL = "MEAL";
     public static ID_MEALS = "MEALS";
 
-    public gid: Guid;
+    public gid: string;
     public name: string;
     public ingredients: Array<Ingredient>;
     public categories: Array<Category>;
@@ -16,7 +16,7 @@ export class Meal {
     public recipe: string;
 
     public constructor(name: string) {
-        this.gid = Guid.create();
+        this.gid = Guid.create().toString();
         this.name = name;
         this.ingredients = new Array<Ingredient>();
         this.categories = new Array<Category>()

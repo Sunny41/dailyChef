@@ -8,6 +8,7 @@ import { MealsPage } from './meals.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { MealComponent } from './meal/meal.component';
 import { StorageService } from 'src/app/services/storage.service';
+import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { StorageService } from 'src/app/services/storage.service';
   ],
   declarations: [
     MealsPage, 
-    MealComponent
+    MealComponent,
+    EditIngredientComponent
   ],
   providers: [StorageService]
 })
