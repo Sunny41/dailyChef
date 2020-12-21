@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+    {{ 'MEAL.LABEL_EDIT_COOKING_TIME' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>{{ 'MEAL.LABEL_TIME_HOUR' | translate }}:</ion-label><ion-input placeholder="{{ 'MEAL.LABEL_TIME_HOUR' | translate }}" type="number" [(ngModel)]="timeValueH"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>{{ 'MEAL.LABEL_TIME_MINUTE' | translate }}:</ion-label><ion-input placeholder="{{ 'MEAL.LABEL_TIME_MINUTE' | translate }}" type="number" [(ngModel)]="timeValueM"></ion-input>
+  </ion-item>
+</ion-content> 
+
+<ion-footer>
+  <ion-button (click)="dismissCancel()">{{ 'GENERAL.LABEL_CANCEL' | translate }}</ion-button>
+  <ion-button (click)="dismissSave()">{{ 'GENERAL.LABEL_SAVE' | translate }}</ion-button>
+</ion-footer>

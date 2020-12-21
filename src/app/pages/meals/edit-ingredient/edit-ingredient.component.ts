@@ -33,7 +33,11 @@ export class EditIngredientComponent implements OnInit {
     this.ingredient.unit = event.detail.value;
   }
 
-  dismiss() {
+  dismissCancel() {
+    this.viewCtrl.dismiss();
+  }
+
+  dismissSave() {
     this.ingredient.calculatedAmount = this.ingredient.amount;
     this.viewCtrl.dismiss(this.ingredient);
   }

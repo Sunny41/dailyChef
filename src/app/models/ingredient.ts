@@ -16,13 +16,4 @@ export class Ingredient {
         this.unit = '';
         this.servings = 2;
     }
-
-    public calculateNewAmount(servings: number): void {
-        if(servings == 1) {
-            this.calculatedAmount = this.amount;
-        }
-        else {
-            this.calculatedAmount = (this.amount / this.servings) * servings;
-        }
-    }
 }

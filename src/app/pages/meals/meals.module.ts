@@ -9,6 +9,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MealComponent } from './meal/meal.component';
 import { StorageService } from 'src/app/services/storage.service';
 import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.component';
+import { EditCookingTimeComponent } from './edit-cooking-time/edit-cooking-time.component';
+import { EditDifficultyComponent } from './edit-difficulty/edit-difficulty.component';
 
 @NgModule({
   imports: [
@@ -22,7 +24,9 @@ import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.compo
   declarations: [
     MealsPage, 
     MealComponent,
-    EditIngredientComponent
+    EditIngredientComponent,
+    EditCookingTimeComponent,
+    EditDifficultyComponent
   ],
   providers: [StorageService]
 })

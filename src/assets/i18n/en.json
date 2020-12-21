@@ -26,7 +26,16 @@
     },
 
     "MEAL": {
-        "LABEL_INGREDIENTS": "Ingredients"
+        "LABEL_INGREDIENTS": "Ingredients",
+        "LABEL_DIFFICULTY": "Difficulty",
+        "LABEL_TIME": "Time",
+        "LABEL_EDIT_COOKING_TIME": "Edit time",
+        "LABEL_TIME_HOUR": "Hours",
+        "LABEL_TIME_MINUTE": "Minutes",
+        "LABEL_EDIT_DIFFICULTY": "Choose the difficulty",
+        "EASY": "Easy",
+        "MIDDLE": "Middle",
+        "HARD": "Hard"
     },
 
     "HOME": {
@@ -55,7 +64,13 @@
         "tsp": "Teaspoon",
         "oz": "Oz",
         "cv": "Cup (volume)",
-        "cs": "Cup (solid)"
+        "cs": "Cup (solid)",
+        "pi": "Pinch"
+    },
+
+    "TIME_UNIT": {
+        "min": "min",
+        "h": "h"
     },
 
     "LABEL_MY_FAVORITE_MEALS": "My favourite Meals"

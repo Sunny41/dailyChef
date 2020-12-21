@@ -11,8 +11,9 @@ export class Meal {
     public name: string;
     public ingredients: Array<Ingredient>;
     public categories: Array<Category>;
-    public difficulty: Difficulty;
-    public time: string; //TO BE CHANGED
+    public difficulty: string;
+    public timeValueH: number;
+    public timeValueM: number;
     public servings: number;
     public recipe: string;
 
@@ -21,7 +22,10 @@ export class Meal {
         this.name = name;
         this.ingredients = new Array<Ingredient>();
         this.categories = new Array<Category>();
+        this.difficulty = Difficulty.EASY;
         this.servings = 2;
+        this.timeValueH = 0;
+        this.timeValueM = 0;
     }
 
     public addIngredient(ingredient: Ingredient): void {

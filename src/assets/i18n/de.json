@@ -29,7 +29,16 @@
     },
 
     "MEAL": {
-        "LABEL_INGREDIENTS": "Zutaten"
+        "LABEL_INGREDIENTS": "Zutaten",
+        "LABEL_DIFFICULTY": "Schwierigkeit",
+        "LABEL_TIME": "Dauer",
+        "LABEL_EDIT_COOKING_TIME": "Zeitdauer bearbeiten",
+        "LABEL_TIME_HOUR": "Stunden",
+        "LABEL_TIME_MINUTE": "Minuten",
+        "LABEL_EDIT_DIFFICULTY": "Wähle den Schwierigkeitsgrad",
+        "EASY": "Leicht",
+        "MIDDLE": "Mittel",
+        "HARD": "Schwer"
     },
 
     "HOME": {
@@ -59,7 +68,13 @@
         "tsp": "Teelöffel",
         "oz": "Unze",
         "cv": "Tasse (Volumen)",
-        "cs": "Tasse (Fest)"
+        "cs": "Tasse (Fest)",
+        "pi": "Priese"
+    },
+
+    "TIME_UNIT": {
+        "min": "min",
+        "h": "h"
     },
 
     "LABEL_MY_FAVORITE_MEALS": "Meine Lieblingsgerichte"

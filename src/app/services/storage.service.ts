@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Difficulty } from '../models/diffuculty';
 import { GroceryListItem } from '../models/grocery-list-item';
 import { Meal } from '../models/meal';
+import { TimeUnit } from '../models/time-unit';
 import { Unit } from '../models/unit';
 
 @Injectable({
@@ -84,12 +86,22 @@ export class StorageService {
     result.push(Unit.GRAM);
     result.push(Unit.MILI_LITRE);
     result.push(Unit.PIECE);
+    result.push(Unit.PINCH);
     result.push(Unit.TABLE_SPOON);
     result.push(Unit.TEA_SPOON);
     result.push(Unit.CUP_SOLID);
     result.push(Unit.CUP_VOLUME);
     result.push(Unit.FLUID_OZ);
     
+    return result;
+  }
+
+  public getDifficulties(): Array<string> {
+    let result = new Array<string>();
+    result.push(Difficulty.EASY);
+    result.push(Difficulty.MIDDLE);
+    result.push(Difficulty.HARD);
+
     return result;
   }
 }
