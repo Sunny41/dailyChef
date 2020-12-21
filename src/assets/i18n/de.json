@@ -47,7 +47,8 @@
         "LABEL_INGREDIENT": "Zutat",
         "LABEL_NAME": "Name",
         "LABEL_AMOUNT": "Menge",
-        "LABEL_UNIT": "Einheit"
+        "LABEL_UNIT": "Einheit",
+        "LABEL_SERVINGS": "Portionen"
     },
 
     "UNIT": {

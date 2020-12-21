@@ -34,6 +34,7 @@ export class EditIngredientComponent implements OnInit {
   }
 
   dismiss() {
+    this.ingredient.calculatedAmount = this.ingredient.amount;
     this.viewCtrl.dismiss(this.ingredient);
   }
 }

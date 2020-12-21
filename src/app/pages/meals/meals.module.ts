@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { MealsPageRoutingModule } from './meals-routing.module';
 
@@ -14,6 +14,7 @@ import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.compo
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     TranslateModule,
     MealsPageRoutingModule

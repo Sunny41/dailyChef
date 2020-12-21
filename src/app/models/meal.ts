@@ -13,13 +13,15 @@ export class Meal {
     public categories: Array<Category>;
     public difficulty: Difficulty;
     public time: string; //TO BE CHANGED
+    public servings: number;
     public recipe: string;
 
     public constructor(name: string) {
         this.gid = Guid.create().toString();
         this.name = name;
         this.ingredients = new Array<Ingredient>();
-        this.categories = new Array<Category>()
+        this.categories = new Array<Category>();
+        this.servings = 2;
     }
 
     public addIngredient(ingredient: Ingredient): void {

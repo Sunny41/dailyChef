@@ -31,9 +31,11 @@ export class HomePage {
       }
     });
 
+    /*
     this.meals = new Array<Meal>();
     this.meals.push(new Meal('Hamburger'));
     this.storage.set(Meal.ID_MEALS, this.meals);
+    */
 
     this.storage.get(Meal.ID_MEALS).then(meals => {
       this.meals = meals as Array<Meal>;

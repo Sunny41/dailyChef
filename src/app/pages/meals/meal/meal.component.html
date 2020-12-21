@@ -11,6 +11,13 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="mealForm">
+    <ion-item>
+      <ion-label>{{ 'INGREDIENT.LABEL_SERVINGS' | translate }}</ion-label><ion-input placeholder="{{ 'INGREDIENT.LABEL_SERVINGS' | translate }}" type="number" formControlName="servings" (change)="onChangeServings($event)"></ion-input>
+    </ion-item>
+  </form>
+  
+
   <ion-list>  
     <ion-list-header>
       <ion-label>
@@ -24,7 +31,7 @@
     <ion-list>
       <ion-item-sliding *ngFor="let ingredient of meal.ingredients">    
         <ion-item>
-          <ion-label>{{ingredient.name}}</ion-label> {{ingredient.amount}}&nbsp;{{ingredient.unit}}
+          <ion-label>{{ingredient.calculatedAmount}}&nbsp;{{ingredient.unit}} </ion-label>{{ingredient.name}}
         </ion-item>
     
         <ion-item-options side="end">

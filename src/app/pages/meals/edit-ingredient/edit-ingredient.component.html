@@ -22,7 +22,11 @@
       </ion-select>
     </ion-item>
   </ion-list>
-</ion-content>
+
+  <ion-item>
+    <ion-label>{{ 'INGREDIENT.LABEL_SERVINGS' | translate }}:</ion-label><ion-input *ngIf="isReady" placeholder="{{ 'INGREDIENT.LABEL_SERVINGS' | translate }}" type="number" [(ngModel)]="ingredient.servings"></ion-input>
+  </ion-item> 
+</ion-content> 
 
 <ion-footer>
   <ion-button (click)="dismiss()">{{ 'GENERAL.LABEL_SAVE' | translate }}</ion-button>
