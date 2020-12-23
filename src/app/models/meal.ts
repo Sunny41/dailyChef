@@ -7,19 +7,25 @@ export class Meal {
     public static ID_MEAL = "MEAL";
     public static ID_MEALS = "MEALS";
 
-    public gid: Guid;
+    public gid: string;
     public name: string;
     public ingredients: Array<Ingredient>;
     public categories: Array<Category>;
-    public difficulty: Difficulty;
-    public time: string; //TO BE CHANGED
+    public difficulty: string;
+    public timeValueH: number;
+    public timeValueM: number;
+    public servings: number;
     public recipe: string;
 
     public constructor(name: string) {
-        this.gid = Guid.create();
+        this.gid = Guid.create().toString();
         this.name = name;
         this.ingredients = new Array<Ingredient>();
-        this.categories = new Array<Category>()
+        this.categories = new Array<Category>();
+        this.difficulty = Difficulty.EASY;
+        this.servings = 2;
+        this.timeValueH = 0;
+        this.timeValueM = 0;
     }
 
     public addIngredient(ingredient: Ingredient): void {

@@ -8,17 +8,23 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-menu-button menu="side-menu"></ion-menu-button>
+      <ion-button (click)="onAddNewMeal()">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngFor="let meal of meals">
-    <ion-item lines="full" (click)="onClickMeal(meal)" detail="false">
-      <ion-label>
-        {{ meal.name }}
-      </ion-label>
-    </ion-item> 
+  <ion-list>
+    <ion-item-sliding *ngFor="let meal of meals">    
+      <ion-item lines="full" (click)="onClickMeal(meal)" detail="false">
+        <ion-label>{{ meal.name }}</ion-label>
+      </ion-item>
+  
+      <ion-item-options side="end">
+        <ion-item-option (click)="deleteMeal(meal)"><ion-icon name="trash-outline"></ion-icon></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>

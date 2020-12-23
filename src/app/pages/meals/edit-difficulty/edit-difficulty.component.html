@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+    {{ 'MEAL.LABEL_EDIT_DIFFICULTY' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>{{ 'MEAL.LABEL_DIFFICULTY' | translate }}</ion-label>
+    <ion-select placeholder="{{ 'MEAL.LABEL_DIFFICULTY' | translate }}" [value]="difficulty" okText="{{ 'GENERAL.LABEL_SAVE' | translate }}" cancelText="{{ 'GENERAL.LABEL_CANCEL' | translate }}" (ionChange)="onChangeDifficulty($event)">
+      <ion-select-option *ngFor="let diff of difficulties" [value]="diff">{{ 'MEAL.' + diff | translate }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-content> 
+
+<ion-footer>
+  <ion-button (click)="dismissCancel()">{{ 'GENERAL.LABEL_CANCEL' | translate }}</ion-button>
+  <ion-button (click)="dismissSave()">{{ 'GENERAL.LABEL_SAVE' | translate }}</ion-button>
+</ion-footer>

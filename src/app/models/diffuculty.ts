@@ -1,5 +1,5 @@
-export enum Difficulty {
-    EASE,
-    MIDDLE,
-    HARD
+export class Difficulty {
+    public static EASY = "EASY";
+    public static MIDDLE = "MIDDLE";
+    public static HARD = "HARD";
 }
