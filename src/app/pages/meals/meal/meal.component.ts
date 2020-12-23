@@ -37,11 +37,11 @@ export class MealComponent implements OnInit {
         this.setTimeValue();
       }
       
-      this.mealForm = this.fb.group(this.meal);
     });
   }
 
-  ngOnInit() {
+  ngOnInit() {    
+    this.mealForm = this.fb.group(this.meal);
   }
 
   onSave(){
