@@ -9,6 +9,9 @@ import { GroceryListPageRoutingModule } from './grocery-list-routing.module';
 import { GroceryListPage } from './grocery-list.page';
 import { TranslateModule } from '@ngx-translate/core';
 
+import { EditItemComponent } from './edit-item/edit-item.component';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,6 +20,6 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
     GroceryListPageRoutingModule
   ],
-  declarations: [GroceryListPage]
+  declarations: [GroceryListPage, EditItemComponent]
 })
 export class GroceryListPageModule {}

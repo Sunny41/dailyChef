@@ -18,7 +18,8 @@
         "LABEL_GENERAL": "Allgemein",
         "LABEL_LANGUAGE": "Sprache",
         "LABEL_LANGUAGE_GERMAN": "Deutsch (System)",
-        "LABEL_LANGUAGE_ENGLISH": "Englisch (System)"
+        "LABEL_LANGUAGE_ENGLISH": "Englisch (System)",
+        "LABEL_CURRENCY": "Währung"
     },
 
     "MEALS": {
@@ -49,7 +50,9 @@
 
     "GROCERY_LIST": {
         "GROCERY_LIST": "Einkaufsliste",
-        "ADD_ITEM": "Hinzufügen"
+        "ADD_ITEM": "Hinzufügen",
+        "EDIT_ITEM": "Bearbeiten",
+        "DELETE_SELECTED": "Ausgewählte Löschen"
     },
 
     "INGREDIENT": {
@@ -57,7 +60,8 @@
         "LABEL_NAME": "Name",
         "LABEL_AMOUNT": "Menge",
         "LABEL_UNIT": "Einheit",
-        "LABEL_SERVINGS": "Portionen"
+        "LABEL_SERVINGS": "Portionen",
+        "LABEL_PRICE": "Preis"
     },
 
     "UNIT": {

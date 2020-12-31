@@ -1,0 +1,50 @@
+{
+    "wheat_flour": {
+        "name": "wheat_flour",
+        "category": "grains_bakery"
+    },
+    "milk": {
+        "name": "milk",
+        "category": "dairy"
+    },
+    "egg": {
+        "name": "egg",
+        "category": "others"
+    }, 
+    "bread": {
+        "name": "bread",
+        "category": "bakery"
+    },
+    "sausage": {
+        "name": "sausage",
+        "category": "meat"
+    }, 
+    "sunflower_oil": {
+        "name": "sunflower_oil",
+        "category": "oil"
+    },
+    "vinegar": {
+        "name": "vinegar",
+        "category": "spice"
+    },
+    "salt": {
+        "name": "salt",
+        "category": "spice"
+    },
+    "pepper": {
+        "name": "pepper",
+        "category": "spice"
+    },
+    "butter": {
+        "name": "butter",
+        "category": "dairy"
+    },
+    "sugar": {
+        "name": "sugar",
+        "category": "grains_bakery"
+    },
+    "cheese": {
+        "name": "cheese",
+        "category": "dairy"
+    }
+}
