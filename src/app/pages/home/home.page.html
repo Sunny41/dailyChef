@@ -9,18 +9,18 @@
 </ion-header>
 
 <ion-content>
+
   <ion-button (click)="chooseRandomRecipe()" class="random_button"
-    >{{'HOME.BUTTON_RANDOM_MEAL' | translate}}</ion-button
-  >
-  <ion-list>
-    <ion-item detail="false" routerLink="/meals">
+    >{{'HOME.BUTTON_RANDOM_MEAL' | translate}}</ion-button>
+  
+
+    <ion-item lines="full" routerLink="/meals" class="favoriteMeals">
       <ion-icon name="fast-food-outline" class="listIcons"></ion-icon>
-      &nbsp; &nbsp; &nbsp;{{'HOME.MEALS' | translate}}
+        <ion-label>&nbsp; &nbsp; &nbsp;{{'HOME.MEALS' | translate}}</ion-label>
     </ion-item>
 
-    <ion-item lines="none" routerLink="/grocery-list">
-      <ion-icon name="receipt-outline" class="listIcons" ></ion-icon>
-      &nbsp; &nbsp; &nbsp;{{'HOME.GROCERY_LIST' | translate}}
+    <ion-item lines="none" routerLink="/grocery-list" class="groceryList">
+       <ion-icon name="receipt-outline" class="listIcons" ></ion-icon>
+       <ion-label>&nbsp; &nbsp; &nbsp;{{'HOME.GROCERY_LIST' | translate}} </ion-label>
     </ion-item>
-  </ion-list>
 </ion-content>

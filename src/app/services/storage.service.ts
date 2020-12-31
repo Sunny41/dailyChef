@@ -5,11 +5,13 @@ import { GroceryListItem } from '../models/grocery-list-item';
 import { Meal } from '../models/meal';
 import { TimeUnit } from '../models/time-unit';
 import { Unit } from '../models/unit';
+import { SystemSetting } from 'src/app/models/system-setting';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
+  private systemSetting: SystemSetting;
 
   constructor(private storage: Storage) { }
 
@@ -31,6 +33,13 @@ export class StorageService {
     });
   }
 
+  public getCurrency() {
+    this.storage.get(SystemSetting.ID_SYSTEM_SETTING).then(setting => {
+      this.systemSetting = setting;
+      return this.systemSetting.currency;
+    });
+  }
+
   public setMeal(meal: Meal): void {
     this.storage.get(Meal.ID_MEALS).then(data => {
       const index = data.findIndex(x => meal.gid == x.gid);
@@ -41,6 +50,12 @@ export class StorageService {
 
   public setMeals(meals: Array<Meal>): void {
     this.storage.set(Meal.ID_MEALS, meals);
+  }
+
+  public getGroceryListItems() : any {
+    return this.storage.get(GroceryListItem.ID_GROCERY_LIST_ITEMS).then(grocerylistitems => {
+      return grocerylistitems;
+    });
   }
 
   public addGraceryListItems(newItems: Array<GroceryListItem>): void {    
@@ -79,6 +94,10 @@ export class StorageService {
 
       this.storage.set(GroceryListItem.ID_GROCERY_LIST_ITEMS, groceryListItems);
     });
+  }
+
+  public saveGroceryListItems(items : Array<GroceryListItem>) {
+    this.storage.set(GroceryListItem.ID_GROCERY_LIST_ITEMS, items);
   }
 
   public getUnits(): Array<string> {

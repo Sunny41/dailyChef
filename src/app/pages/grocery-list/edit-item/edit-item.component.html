@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> <div *ngIf="!new">{{'GROCERY_LIST.EDIT_ITEM' | translate}}</div> <div *ngIf="new">{{'GROCERY_LIST.ADD_ITEM' | translate}}</div> </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="close-outline" (click)="close()" class="close"></ion-icon>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list lines="full">
+  <ion-item>
+    <ion-label>{{'INGREDIENT.LABEL_INGREDIENT' | translate}}</ion-label>
+    <ion-input [(ngModel)]="name" placeholder="{{'INGREDIENT.LABEL_NAME' | translate}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{'INGREDIENT.LABEL_AMOUNT' | translate}}</ion-label>
+    <ion-input [(ngModel)]="amount" placeholder="{{'INGREDIENT.LABEL_AMOUNT' | translate}}"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{'INGREDIENT.LABEL_UNIT' | translate}}</ion-label>
+    <ion-select placeholder="{{ 'INGREDIENT.LABEL_UNIT' | translate }}" [value]="ingredient?.unit" okText="{{ 'GENERAL.LABEL_SAVE' | translate }}" cancelText="{{ 'GENERAL.LABEL_CANCEL' | translate }}" (ionChange)="onChangeUnit($event)">
+      <ion-select-option *ngFor="let unit of units" value="{{unit}}">{{ 'UNIT.' + unit | translate }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item  lines ="none">
+    <ion-label>{{'INGREDIENT.LABEL_PRICE' | translate}}</ion-label>
+    <ion-input [(ngModel)]="price" placeholder="{{'INGREDIENT.LABEL_PRICE' | translate}}"></ion-input>&nbsp;&nbsp;{{currency}}
+  </ion-item>
+</ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button (click)="dismissSave()" class="footerButton">
+    <ion-icon name="checkmark-circle-outline"></ion-icon>
+  </ion-button>
+</ion-footer>

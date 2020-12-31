@@ -16,22 +16,21 @@ ion-content {
   align: center;
 }
 
-ion-item-option {
-  --background: #224200 !important;
-  color: white;
-  font-size: 150%;
-}
 
 ion-button {
   text-transform: none;
 }
 
-ion-list{
-  margin-top: 10%;
+ion-label{
+  vertical-align: middle;
 }
 
-ion-item{
-  margin-top: 3%;
+ion-icon{ 
+  height: 100px;
+}
+
+.favoriteMeals{
+  margin-top: 10%;
 }
 
 .delete {

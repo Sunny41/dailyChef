@@ -42,6 +42,9 @@ export class MealsPage {
           text: this.translate.instant('GENERAL.LABEL_OK'),
           handler: (data)=> {
             if(data.meal){
+              if(!this.meals){
+                this.meals = [];
+              }
               this.meals.push(new Meal(data.meal));
               this.storage.setMeals(this.meals);
             }

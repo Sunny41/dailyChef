@@ -25,4 +25,9 @@ export class SettingsPage {
     this.translate.use(this.systemSetting.language);
     this.storage.set(SystemSetting.ID_SYSTEM_SETTING, this.systemSetting);
   }
+
+  onChangeCurrency(event) {
+    this.systemSetting.currency = event.detail.value;
+    this.storage.set(SystemSetting.ID_SYSTEM_SETTING,this.systemSetting);
+  }
 }

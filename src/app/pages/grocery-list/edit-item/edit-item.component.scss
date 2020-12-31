@@ -1,0 +1,23 @@
+ion-item {
+  align-items: right;
+}
+
+ion-icon {
+  font-size: 150%;
+}
+
+ion-input {
+  text-align: right;
+  display: inline-block;
+}
+
+ion-footer {
+  text-align: center;
+}
+
+.footerButton {
+  --background: white;
+  color: #224200;
+  --box-shadow: none;
+  border: none;
+}
