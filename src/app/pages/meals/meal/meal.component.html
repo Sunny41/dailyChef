@@ -1,59 +1,74 @@
 '<ion-header>
-  <ion-toolbar>
+  <ion-toolbar mode ="ios">
     <ion-title>
-    {{ meal.name }}
+      {{ meal.name }}
     </ion-title>
-
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-buttons slot="end">
+      <ion-icon name="close-outline" (click)="close()"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <form [formGroup]="mealForm" (ngSubmit)="onChangeServings()">
-    <ion-item>
-      <ion-label>{{ 'MEAL.LABEL_DIFFICULTY' | translate }}:</ion-label>
-      <ion-icon name="skull-outline" (click)="editDifficulty()"></ion-icon>
-      <ion-icon *ngIf="meal.difficulty == 'MIDDLE' || meal.difficulty == 'HARD'" name="skull-outline" (click)="editDifficulty()"></ion-icon>
-      <ion-icon *ngIf="meal.difficulty == 'HARD'" name="skull-outline" (click)="editDifficulty()"></ion-icon>
-
-      <ion-label side="end">{{ 'MEAL.LABEL_TIME' | translate }}:</ion-label><ion-input readonly (click)="editTime()" [value]="time"></ion-input>
+    <ion-item lines="full">
+      <ion-label>{{ "MEAL.LABEL_DIFFICULTY" | translate }}:</ion-label>
+      <ion-img src="../../../assets/icon/hat.jpg" (click)="editDifficulty()" ></ion-img>
+      <ion-img src="../../../assets/icon/hat.jpg" (click)="editDifficulty()" *ngIf="meal.difficulty == 'MIDDLE' || meal.difficulty == 'HARD'"></ion-img>
+      <ion-img src="../../../assets/icon/hat.jpg" (click)="editDifficulty()" *ngIf="meal.difficulty == 'HARD'"></ion-img>
     </ion-item>
 
-    <ion-item>
-      <ion-label>{{ 'INGREDIENT.LABEL_SERVINGS' | translate }}:</ion-label><ion-input placeholder="{{ 'INGREDIENT.LABEL_SERVINGS' | translate }}" type="number" formControlName="servings" (change)="onChangeServings()"></ion-input>
+    <ion-item lines="full">
+      <ion-label side="end">{{ "MEAL.LABEL_TIME" | translate }}:</ion-label
+      ><ion-input readonly (click)="editTime()" [value]="time"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label>{{ "INGREDIENT.LABEL_SERVINGS" | translate }}:</ion-label>
+      {{meal.servings}} &nbsp;
+      <table>
+        <tr>
+          <td>
+            <ion-icon name="chevron-up-outline" (click)="increaseServings()"></ion-icon>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <ion-icon name="chevron-down-outline" (click)="decreaseServings()"></ion-icon>
+          </td>
+        </tr>
+      </table>
     </ion-item>
   </form>
-  
 
-  <ion-list>  
+  <ion-list>
     <ion-list-header>
       <ion-label>
-        {{ 'MEAL.LABEL_INGREDIENTS' | translate }}
+        {{ "MEAL.LABEL_INGREDIENTS" | translate }}
       </ion-label>
       <ion-button (click)="addNewIngredient()">
         <ion-icon name="add-circle-outline"></ion-icon>
       </ion-button>
-    </ion-list-header>    
-  
-    <ion-list>
-      <ion-item-sliding *ngFor="let ingredient of meal.ingredients">    
-        <ion-item>
-          <ion-label>{{ingredient.calculatedAmount}}&nbsp;{{ 'UNIT.' + ingredient.unit | translate}} </ion-label>{{ingredient.name}}
-        </ion-item>
-    
-        <ion-item-options side="end">
-          <ion-item-option (click)="editIngredient(ingredient)"><ion-icon name="create-outline"></ion-icon></ion-item-option>
-        </ion-item-options>
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let ingredient of meal.ingredients">
+       <ion-item lines="full" (click)="editIngredient(ingredient)">
+        <ion-label>{{ ingredient.calculatedAmount }}&nbsp;{{ "UNIT." + ingredient.unit | translate}}</ion-label>
+        {{ ingredient.name }}
+      </ion-item>
 
-        <ion-item-options side="start">
-          <ion-item-option (click)="deleteIngredient(ingredient)"><ion-icon name="trash-outline"></ion-icon></ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-    </ion-list>
-    
-    
+      <ion-item-options side="end">
+        <ion-item-option (click)="deleteIngredient(ingredient)"
+          ><ion-icon name="trash-outline"></ion-icon
+        ></ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
-  
+
 </ion-content>
+
+<ion-footer>
+  <ion-button (click)="saveAndExit()">
+    {{'GENERAL.LABEL_SAVE' | translate}}
+  </ion-button>
+</ion-footer>
+<div *ngIf="overlay" class="overlay"></div>

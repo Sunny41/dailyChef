@@ -73,7 +73,8 @@
         "oz": "Unze",
         "cv": "Tasse (Volumen)",
         "cs": "Tasse (Fest)",
-        "pi": "Priese"
+        "pi": "Priese",
+        "pck": "Packung"
     },
 
     "TIME_UNIT": {
