@@ -1,0 +1,26 @@
+ion-img{
+    height: 50%;
+    width: 15%;
+}
+
+ion-icon{
+    font-size: 150%;
+}
+
+ion-item{
+    align-items: right;
+}
+
+ion-input {
+    text-align: right;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 20;
+    top: 0;
+    left: 0;
+  }

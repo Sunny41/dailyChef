@@ -63,7 +63,7 @@ export class GroceryListPage implements OnInit {
 
   deleteSelectedItems() {
     let tempItems = [];
-    for (let i = 0; i< this.items.length; i++){
+    for (let i = 0; i < this.items.length; i++){
       if(!this.items[i].checked){
         tempItems.push(this.items[i]);
       }

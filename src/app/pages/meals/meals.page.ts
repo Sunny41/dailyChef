@@ -3,7 +3,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { Meal } from 'src/app/models/meal';
 import { NavigationExtras, Router } from '@angular/router';
 import { StorageService } from 'src/app/services/storage.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
+import { MealComponent } from './meal/meal.component';
 
 @Component({
   selector: 'app-meals',
@@ -16,7 +17,8 @@ export class MealsPage {
   constructor(private translate: TranslateService, 
               private storage: StorageService, 
               private router: Router, 
-              private alertCtrl: AlertController) { }
+              private alertCtrl: AlertController,
+              private modalCtrl: ModalController) { }
 
   ionViewWillEnter(){
     this.storage.getMeals().then(meals => {
@@ -56,13 +58,13 @@ export class MealsPage {
     await alert.present();
   }
 
-  onClickMeal(meal: Meal): void {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        meal: meal
-      }
-    };
-    this.router.navigate(['/meals/meal'], navigationExtras);
+  async onClickMeal(meal: Meal) {
+    const modal = await this.modalCtrl.create({
+      component: MealComponent,
+      componentProps: { meal: meal}
+       
+    }); 
+    await modal.present();
   }
 
   deleteMeal(meal: Meal){
