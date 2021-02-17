@@ -24,8 +24,9 @@ export class EditIngredientComponent implements OnInit {
   ngOnInit() {
     this.ingredient = this.navParams.get('ingredient');
     if(this.ingredient === null || this.ingredient === undefined){
-      this.ingredient = new Ingredient(" ");
+      this.ingredient = new Ingredient('');
     }
+    console.log(this.ingredient);
     this.isReady = true;
   }
 

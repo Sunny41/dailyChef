@@ -15,72 +15,32 @@ export class HomePage {
   public meals: Array<Meal>;
 
   constructor(private storage: Storage, private alertCtrl: AlertController, private translate: TranslateService, private router: Router) {
-    this.meals = new Array<Meal>(); 
-  }
-
-  ionViewWillEnter(){
-    //this.storage.clear();
-    this.storage.get(SystemSetting.ID_SYSTEM_SETTING).then(setting => {
-      if(setting == null) {
-        var defaultSetting = SystemSetting.getDefaultSystemSettings();
-        this.translate.use(defaultSetting.language);
-        this.storage.set(SystemSetting.ID_SYSTEM_SETTING, defaultSetting);
-      }
-      else{
-        this.translate.use(setting.language);
-      }
-    });
-
-    /*
     this.meals = new Array<Meal>();
-    this.meals.push(new Meal('Hamburger'));
-    this.storage.set(Meal.ID_MEALS, this.meals);
-    */
-
-    this.storage.get(Meal.ID_MEALS).then(meals => {
-      this.meals = meals as Array<Meal>;
-    })
   }
 
-  onClickMeals(){
-    this.router.navigateByUrl('/meals');
-  }
+  ionViewWillEnter() {
 
-
-
-
-  async add() {
-    const alert = await this.alertCtrl.create({
-      message: 'Was möchtest du hinzufügen?',
-      inputs: [
-        {
-          placeholder: 'Neues Lieblingsgericht',
-          name: 'favorite'
+    this.storage.get(SystemSetting.ID_SYSTEM_SETTING).then(setting => {
+      this.storage.get(Meal.ID_MEALS).then(meals => {
+        this.meals = meals as Array<Meal>;
+        if (setting == null) {
+          var defaultSetting = SystemSetting.getDefaultSystemSettings();
+          this.translate.use(defaultSetting.language);
+          this.storage.set(SystemSetting.ID_SYSTEM_SETTING, defaultSetting);
         }
-      ], 
-      buttons: [
-        {
-          text: 'ok',
-          handler: (data)=> {
-            if(data.favorite){
-              this.meals.push(new Meal(data.favorite));
-              this.storage.set(Meal.ID_MEALS,  this.meals);
-            }
-            console.log(data);
-          }
+        else {
+          this.translate.use(setting.language);
         }
-      ]
+      });
     });
-    await alert.present();
+
   }
 
-  delete(index:number) {
-    this.meals.splice(index, 1);
-    this.storage.set(Meal.ID_MEALS, this.meals);
-  }
+
+
 
   async chooseRandomRecipe() {
-    const random = Math.floor(Math.random()*this.meals.length);
+    const random = Math.floor(Math.random() * this.meals.length);
     const alert = await this.alertCtrl.create({
       message: 'Wir machen heute ' + this.meals[random].name,
       buttons: [{

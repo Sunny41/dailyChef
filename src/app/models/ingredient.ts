@@ -2,7 +2,7 @@ import { Category } from "./category";
 
 export class Ingredient {
     public name: string;
-    public amount: number;
+    public amount: any;
     public calculatedAmount: number;
     public unit: string;
     public price: number;
@@ -12,7 +12,7 @@ export class Ingredient {
 
     public constructor(name: string) {
         this.name = name;
-        this.amount = 0;
+        this.amount = '';
         this.unit = '';
         this.servings = 2;
     }
