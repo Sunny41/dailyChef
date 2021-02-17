@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { AlertController, NavParams } from "@ionic/angular";
+import { AlertController, NavParams, PickerController } from "@ionic/angular";
+import { PickerOptions } from '@ionic/core';
 import { TranslateService } from "@ngx-translate/core";
 import { Ingredient } from "src/app/models/ingredient";
 import { Meal } from "src/app/models/meal";
@@ -32,7 +33,8 @@ export class MealComponent implements OnInit {
     private storage: StorageService,
     private fb: FormBuilder,
     private alertCtrl: AlertController,
-    private navParams: NavParams
+    private navParams: NavParams,
+    private pickerCtrl: PickerController
   ) {
     this.meal = this.navParams.get('meal');
     this.setTimeValue();
@@ -48,14 +50,18 @@ export class MealComponent implements OnInit {
     const modal = await this.modalController.create({
       component: EditIngredientComponent,
       componentProps: { ingredient: null },
+      cssClass: 'groceryListItem'
     });
 
     modal.onDidDismiss().then((data) => {
-      this.calculateNewAmount(data.data, this.meal.servings);
+      this.overlay = false;
+      if(data.data){
+        this.calculateNewAmount(data.data, this.meal.servings);
       this.meal.ingredients.push(data.data);
       this.storage.setMeal(this.meal);
+      }
     });
-
+    this.overlay = true;
     return modal.present();
   }
 
@@ -68,7 +74,7 @@ export class MealComponent implements OnInit {
 
     modal.onDidDismiss().then((data) => {
       this.overlay = false;
-      if (data != null && data.data != null) {
+      if (!data && data.data != null) {
         this.calculateNewAmount(data.data, this.meal.servings);
         let index = this.meal.ingredients.indexOf(ingredient);
         this.meal.ingredients[index].name = data.data.name;
@@ -103,27 +109,54 @@ export class MealComponent implements OnInit {
     this.storage.setMeal(this.meal);
   }
 
-  async editTime() {
-    const modal = await this.modalController.create({
-      component: EditCookingTimeComponent,
-      componentProps: {
-        timeValueH: this.meal.timeValueH,
-        timeValueM: this.meal.timeValueM,
-      },
-    });
+  async showTimePicker() {
+    const hours = [];
+    const minutes = [];
+    for(let i = 0; i < 73; i++){
+      hours.push({text: '' + i, value: i});
+    }
+    let j = 0;
+    while (j < 61){
+      minutes.push({text: '' + j, value: j});
+      j = j + 5;
+    }
+    const ops: PickerOptions = {
+      buttons: [
+        {
+          text: this.translate.instant('GENERAL.LABEL_CANCEL'),
+          role: 'cancel'
+        },
+        {
+          text: this.translate.instant('GENERAL.LABEL_OK')
+        }
+      ],
+      columns: [
+        {
+          name: 'hours',
+          prefix: this.translate.instant('MEAL.LABEL_TIME_HOUR'),
+          options: hours,
+          selectedIndex: this.meal.timeValueH
+        },
+        {
+          name: 'minutes',
+          prefix: this.translate.instant('MEAL.LABEL_TIME_MINUTE'),
+          options: minutes,
+          selectedIndex: this.meal.timeValueM/5
+        }
+      ]
+    };
+    let picker = await this.pickerCtrl.create(ops);
+    picker.onDidDismiss().then(async data => {
+      let hours = await picker.getColumn('hours');
+      let minutes = await picker.getColumn('minutes');
+      this.meal.timeValueH = parseInt(hours.options[hours.selectedIndex].text);
+      this.meal.timeValueM = parseInt(minutes.options[minutes.selectedIndex].text);
+      console.log(hours.options[hours.selectedIndex].text + ':' + minutes.options[minutes.selectedIndex].text);
+      this.setTimeValue();
+      this.storage.setMeal(this.meal);
+    })
+    picker.present();
 
-    modal.onDidDismiss().then((data) => {
-      if (data != null && data.data != null) {
-        this.meal.timeValueH =
-          data.data.timeValueH < 0 ? 0 : data.data.timeValueH;
-        this.meal.timeValueM =
-          data.data.timeValueM < 0 ? 0 : data.data.timeValueM;
-        this.setTimeValue();
-        this.storage.setMeal(this.meal);
-      }
-    });
-
-    return modal.present();
   }
 
   async editDifficulty() {
